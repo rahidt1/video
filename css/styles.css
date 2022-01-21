@@ -1,0 +1,126 @@
+:root {
+  --color-primary: #49a6e9;
+  --font-primary: "Open Sans", sans-serif;
+  --font-secondary: "Roboto", sans-serif;
+  --letter-spacing: 4px;
+  --trasition: all 0.5s;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography */
+html {
+  font-size: 62.5%;
+}
+body {
+  background: var(--color-body);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+h1 {
+  font-family: var(--font-secondary);
+  color: #fff;
+  letter-spacing: var(--letter-spacing);
+  font-size: 4.8rem;
+  line-height: 1.25;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    line-height: 1;
+    font-size: 6.4rem;
+  }
+}
+
+/* Video */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+header::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.title {
+  z-index: 2;
+}
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  z-index: -2;
+  /* NOTE: TO use z-index, we must use position
+  property other than static (relative/fixed/absolute)*/
+}
+/* Switch Button */
+.switch-btn {
+  position: absolute;
+  bottom: 65px;
+  left: 65px;
+  width: 11.2rem;
+  height: 3.2rem;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.switch-btn span {
+  text-transform: capitalize;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+.switch {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 50%;
+  height: 100%;
+  border-radius: 8px;
+  background: var(--color-primary);
+  transition: var(--trasition);
+  display: block;
+}
+.slide .switch {
+  left: 50%;
+}
+
+/* Preloader */
+.preloader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  z-index: 999;
+  visibility: visible;
+  transition: var(--trasition);
+}
+.preloader--hide {
+  visibility: hidden;
+  z-index: -999;
+}
